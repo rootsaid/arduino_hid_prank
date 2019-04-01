@@ -9,8 +9,8 @@
 #include <WiFi101.h>
 #include <Keyboard.h>
 
-char ssid[] = "QB_OA"; 
-char pass[] = "spid3rs3nse";
+char ssid[] = "ESSID"; 
+char pass[] = "Password";
 int keyIndex = 0;      
 int ledpin = 6;
 bool val = true;
