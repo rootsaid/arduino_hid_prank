@@ -1,2 +1,16 @@
-# ducky_over_wifi
-HID or Human Interface Devices are Devices that takes input from human and pass it on to the device connected to it. HID devices includes keyboard, joystick, mouse, touch pad, graphic tablet etc. There is a Library available in arduino which enables Digispark to acts as a keyboard and send keystrokes to PC. We are making use of this library to execute a metasploit reverse shell python code in the victim's machine and gain a reverse shell. Here, we will be using an Arduino Board, Arduino MKR1000 to integrate wireless network connectivity and perform HID attacks over WiFi
+Best April Fool Prank 2019 using Arduino -  Arduino HID Prank
+
+Fool Your Friends Using Arduino MicroController
+
+Video Demo - http://bit.ly/arduino-hid
+Here is the complete Tutorial for Arduino HID Prank - https://rootsaid.com/april-fools-prank-arduino/
+
+April Fool Prank for Kids, Geeks, and Techies. 
+
+In this video, I will show you how to prank your friends, colleagues, and family who use a computer using Arduino Microcontroller.
+
+In the next video, I will show you how you can easily set this one for yourself.
+
+Pranking your friends with Arduino is really easy. Just upload the Arduino HID Code, connect the Arduino HID device to Your Friends PC when they are not around and hide somewhere.
+
+Once it's done, you can easily prank your friend with your phone.
