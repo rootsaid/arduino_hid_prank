@@ -2,7 +2,7 @@ Best April Fool Prank 2019 using Arduino -  Arduino HID Prank
 
 Fool Your Friends Using Arduino MicroController
 
-Video Demo - http://bit.ly/arduino-hid
+Video Demo - http://bit.ly/arduino-prank
 Here is the complete Tutorial for Arduino HID Prank - https://rootsaid.com/april-fools-prank-arduino/
 
 April Fool Prank for Kids, Geeks, and Techies. 
