@@ -71,7 +71,6 @@ void loop() {
             client.print("Click <a href=\"/WL\">here</a> To Logout<br>");
             client.print("Click <a href=\"/WS\">here</a> To Shutdown<br>");
             client.print("Click <a href=\"/WW\">here</a> To Change Wallpaper (Coming Soon...)<br>");
-            client.print("Click <a href=\"/WRS\">here</a> Launch Reverse Shell (Coming Soon...)<br>");
 
             client.print("<br>");
             client.print("Linux<br>");
